@@ -1,7 +1,7 @@
 {
     "id": "io.github.Swordfish90.CoolRetroTerm",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.4",
+    "runtime-version": "5.15-22.08",
     "sdk": "org.kde.Sdk",
     "command": "cool-retro-term",
     "finish-args": [
@@ -10,8 +10,7 @@
         "--device=all",
         "--filesystem=host",
         "--share=network",
-        "--share=ipc",
-        "--env=QML2_IMPORT_PATH=/app/lib/qt6/qml"
+        "--share=ipc"
     ],
     "cleanup": [
         "/include",
@@ -30,7 +29,7 @@
             "sources": [
                 {
                     "type" : "dir",
-                    "path" : "../../."
+                    "path" : "./"
                 }
             ]
         }
