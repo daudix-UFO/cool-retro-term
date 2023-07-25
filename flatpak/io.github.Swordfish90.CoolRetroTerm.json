@@ -20,8 +20,28 @@
     ],
     "modules": [
         {
+            "name": "qmltermwidget",
+            "buildsystem": "simple",
+            "build-commands" : [
+            	"qmake",
+            	"make",
+            	"install -Dm755 qmltermwidget -t /app/bin"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/Swordfish90/qmltermwidget.git",
+                    "tag": "0.2.0"
+                }
+            ]
+        },
+        {
             "name": "CoolRetroTerm",
-            "buildsystem": "qmake",
+            "build-commands" : [
+            	"qmake",
+            	"make",
+            	"install -Dm755 cool-retro-term -t /app/bin"
+            ],
             "sources": [
                 {
                     "type": "git",
