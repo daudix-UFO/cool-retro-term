@@ -39,6 +39,9 @@ Makefile*
 # Ubuntu SDK
 *.excludes
 
+# Flatpak cache
+.flatpak-builder
+
 # Excludes compiled files
 imports
 cool-retro-term
