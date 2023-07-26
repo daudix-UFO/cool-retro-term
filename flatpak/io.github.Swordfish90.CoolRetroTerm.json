@@ -39,15 +39,6 @@
                     "type": "git",
                     "url": "https://github.com/Swordfish90/cool-retro-term.git",
                     "tag": "1.2.0"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                    	"git submodule deinit -f -- qmltermwidget",
-			"rm -rf .git/modules/qmltermwidget",
-			"git rm -f qmltermwidget",
-			"rm .gitmodules"
-                    ]
                 }
             ]
         }
