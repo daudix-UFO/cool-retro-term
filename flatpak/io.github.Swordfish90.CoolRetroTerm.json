@@ -21,8 +21,16 @@
     ],
     "modules": [
         {
-            "name": "QMLTermWidget",
+            "name": "qmltermwidget",
             "buildsystem": "qmake",
+            "make-install-args": [
+                "INSTALL_ROOT=/app"
+            ],
+            "post-install": [
+                "mkdir -p /app/lib/qml",
+                "ln -s /app/usr/lib/qml/QMLTermWidget /app/lib/qml",
+                "ln -s /app/usr/lib/lib* /app/lib"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -34,6 +42,9 @@
         {
             "name": "CoolRetroTerm",
             "buildsystem": "qmake",
+            "make-install-args": [
+                "INSTALL_ROOT=/app"
+            ],
             "sources": [
                 {
                     "type": "git",
