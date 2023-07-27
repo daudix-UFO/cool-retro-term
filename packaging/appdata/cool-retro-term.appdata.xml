@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2014 Markus S. <kamikazow@web.de> -->
 <component type="desktop">
-  <id>cool-retro-term.desktop</id>
+  <id>io.github.Swordfish90.CoolRetroTerm</id>
   <metadata_license>MIT</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Cool Retro Term</name>
