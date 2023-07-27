@@ -1,0 +1,60 @@
+id: io.github.Swordfish90.CoolRetroTerm
+runtime: org.kde.Platform
+runtime-version: 5.15-22.08
+sdk: org.kde.Sdk
+command: cool-retro-term
+finish-args:
+  - --socket=wayland
+  - --share=ipc
+  - --socket=fallback-x11
+  - --device=dri
+  - --talk-name=org.freedesktop.Flatpak
+cleanup:
+  - /include
+  - /lib/qmake
+  - /lib/make
+  - /lib/pkgconfig
+modules:
+  - name: qmltermwidget
+    buildsystem: qmake
+    make-install-args:
+      - INSTALL_ROOT=/app
+    post-install:
+      - mkdir -p /app/lib/qml
+      - ln -s /app/usr/lib/qml/QMLTermWidget /app/lib/qml
+      - ln -s /app/usr/lib/lib* /app/lib
+    sources:
+      - type: git
+        url: https://github.com/Swordfish90/qmltermwidget.git
+        commit: 63228027e1f97c24abb907550b22ee91836929c5
+
+  - name: CoolRetroTerm
+    buildsystem: qmake
+    subdir: app
+    make-install-args:
+      - INSTALL_ROOT=/app
+    post-install:
+      - install -Dm755 /app/usr/bin/cool-retro-term -t /app/bin
+    sources:
+      - type: dir
+        path: ../
+
+  - name: metadata
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 io.github.Swordfish90.CoolRetroTerm.png -t /app/share/icons/hicolor/256x256/apps/
+      - install -Dm644 io.github.Swordfish90.CoolRetroTerm.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 io.github.Swordfish90.CoolRetroTerm.desktop -t /app/share/applications/
+
+    sources:
+      - type: file
+        path: ../app/icons/256x256/cool-retro-term.png
+        dest-filename: io.github.Swordfish90.CoolRetroTerm.png
+
+      - type: file
+        path: ../cool-retro-term.desktop
+        dest-filename: io.github.Swordfish90.CoolRetroTerm.desktop
+
+      - type: file
+        path: ../packaging/appdata/cool-retro-term.appdata.xml
+        dest-filename: io.github.Swordfish90.CoolRetroTerm.metainfo.xml
