@@ -5,12 +5,13 @@
     "sdk": "org.kde.Sdk",
     "command": "cool-retro-term",
     "finish-args": [
-        "--share=ipc",
-        "--share=network",
-        "--socket=fallback-x11",
-        "--socket=wayland",
-        "--device=dri",
-        "--talk-name=org.freedesktop.Flatpak"
+	"--filesystem=host",
+	"--share=ipc",
+	"--socket=fallback-x11",
+	"--socket=wayland",
+	"--socket=session-bus",
+	"--device=all",
+	"--talk-name=org.freedesktop.Flatpak"
     ],
     "cleanup": [
         "/include",
